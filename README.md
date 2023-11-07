@@ -187,7 +187,7 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 	mySet.add("value1");
 ```
 
-## Null ve Undefined arasındaki fark nedir? Açıklayınız
+## 4. Null ve Undefined arasındaki fark nedir? Açıklayınız
 
 `null` ve `undefined` JavaScript'te iki farklı değerdir, ancak kullanım amaçları birbirinden biraz farklıdır.
 
@@ -205,7 +205,7 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 
 Özetle, `undefined` genellikle bir değişkenin henüz bir değer almadığını ifade ederken, `null` bir değişkenin bilinçli olarak boş olduğunu ifade eder. Her ikisi de JavaScript'te "falsy" değerlerdir, yani bir koşul ifadesinde false olarak değerlendirilirler.
 
-## NaN nedir? Açıklayınız
+## 5. NaN nedir? Açıklayınız
 
 `NaN` (Not a Number), JavaScript'te bir özel değerdir ve "Sayı Değil" anlamına gelir. `NaN`, matematiksel bir işlemin sonucu sayı olmayan bir değer olduğunda ortaya çıkar. `NaN`, genellikle sayısal operasyonlarda hata durumlarını temsil etmek için kullanılır.
 
@@ -242,3 +242,30 @@ Birkaç durumda `NaN` elde edilebilir:
 	console.log(isNaN("hello")); // true
 	console.log(isNaN(42)); // false
 ```
+
+## 6. JavaScript'te yorum satırı eklemenin kaç farklı yolu vardır?
+
+JavaScript'te yorum eklemek için iki farklı yöntem vardır:
+
+1.  **Tek Satırlık Yorum:**
+
+    - Tek satırlık yorumlar, `//` işaretiyle başlar ve o satırın sonuna kadar devam eder.
+
+    ```JavaScript
+        // This is an one-line comment example.
+        let x = 5; // This is also an one-line comment example.
+    ```
+
+2.  **Çok Satırlı Yorum:**
+
+- Çok satırlı yorumlar `/*` ile başlar ve `*/` ile biter. İçinde birden fazla satırı kapsayabilir.
+
+  ```JavaScript
+      /* This
+      is a
+      multi-line
+      comment
+      example. */
+  ```
+
+  Yorumlar, kodunuzun okunabilirliğini artırmak ve kodu belgelemek için kullanılır. Programınızın anlaşılabilir olması ve başkaları tarafından kolayca takip edilebilmesi için düzenli olarak yorum eklemek iyi bir pratiktir.
