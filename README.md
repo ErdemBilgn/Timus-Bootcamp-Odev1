@@ -388,22 +388,26 @@ Arrow fonksiyonları (ok fonksiyonları) ve normal fonksiyonlar (fonksiyon ifade
 **1. `this` Bağlamı:**
 
 - Arrow fonksiyonları, kendi `this` bağlamını oluştururlar ve dış kapsamdaki `this`'i alırlar. Bu, arrow fonksiyonlarıyla oluşturulan fonksiyonlarda `this`'in dinamik değişmediği anlamına gelir.
-  ```JavaScript
-  var person = {
-  name: "John",
-  sayHello: function() {
-  console.log("Merhaba, ben " + this.name);
-  }
-  }; person.sayHello(); // Çıktı: Merhaba, ben John
 
-      var person = {
-      	name: "John",
+  ```JavaScript
+    var person = {
+        name: "John",
+        sayHello: function() {
+            console.log("Merhaba, ben " + this.name);
+        }
+    };
+
+    person.sayHello(); // Çıktı: Merhaba, ben John
+
+    var person = {
+        name: "John",
       	sayHello: () => {
       		console.log("Merhaba, ben " + this.name);
       	}
       };
+
       person.sayHello(); // Çıktı: Merhaba, ben undefined
-      ```
+  ```
 
   **2. Argümanlar (arguments) Objesi:**
 
@@ -424,17 +428,16 @@ Arrow fonksiyonları (ok fonksiyonları) ve normal fonksiyonlar (fonksiyon ifade
 
 - Arrow fonksiyonları, `new` ile kullanılmak üzere tasarlanmamışlardır. Yani, arrow fonksiyonları constructor olarak kullanılamazlar.
   `JavaScript
-	let NormalConstructor = function() { 
-		this.value = 1; 
-	}; 
-	
-	let normalInstance = new  NormalConstructor(); 
-	console.log(normalInstance.value); // 1  
-	
-	let ArrowConstructor = () => { 
-		this.value = 1; 
-	}; 
-	
-	let arrowInstance = new ArrowConstructor(); // Hata: ArrowConstructor is not a constructor
-	`
-  Bu farklar göz önüne alındığında, arrow fonksiyonlarının daha kısa sözdizimi ve `this` bağlamındaki davranışı nedeniyle özellikle callback fonksiyonlarında ve kısa işlevsel ifadelerde tercih edildiğini görebiliriz. Ancak, kullanım senaryolarına bağlı olarak normal fonksiyonlar da gereklidir.
+  let NormalConstructor = function() {
+  this.value = 1;
+  };
+
+  let normalInstance = new NormalConstructor();
+  console.log(normalInstance.value); // 1
+
+  let ArrowConstructor = () => {
+  this.value = 1;
+  };
+
+  let arrowInstance = new ArrowConstructor(); // Hata: ArrowConstructor is not a constructor
+  `Bu farklar göz önüne alındığında, arrow fonksiyonlarının daha kısa sözdizimi ve`this` bağlamındaki davranışı nedeniyle özellikle callback fonksiyonlarında ve kısa işlevsel ifadelerde tercih edildiğini görebiliriz. Ancak, kullanım senaryolarına bağlı olarak normal fonksiyonlar da gereklidir.
