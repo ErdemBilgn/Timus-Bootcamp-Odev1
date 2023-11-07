@@ -154,7 +154,7 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 
 ```JavaScript
     let numbers = [1, 2, 3, 4, 5];
-    let fruits = ["apple", "pear", "strawberry"];
+    let fruits = ["elma", "armut", "çilek"];
 ```
 
 **3. Function (Fonksiyonlar):**
@@ -249,23 +249,42 @@ JavaScript'te yorum eklemek için iki farklı yöntem vardır:
 
 1.  **Tek Satırlık Yorum:**
 
-    - Tek satırlık yorumlar, `//` işaretiyle başlar ve o satırın sonuna kadar devam eder.
+- Tek satırlık yorumlar, `//` işaretiyle başlar ve o satırın sonuna kadar devam eder.
 
-    ```JavaScript
-        // This is an one-line comment example.
-        let x = 5; // This is also an one-line comment example.
-    ```
+  ```JavaScript
+      // Bu bir tek satırlık yorum örneğidir.
+      let x = 5; // Bu da bir tek satırlık yorumdur.
+  ```
 
 2.  **Çok Satırlı Yorum:**
 
 - Çok satırlı yorumlar `/*` ile başlar ve `*/` ile biter. İçinde birden fazla satırı kapsayabilir.
 
   ```JavaScript
-      /* This
-      is a
-      multi-line
-      comment
-      example. */
+      /* bu
+      bir
+      çok satırlı
+      yorum örneğidir. */
   ```
 
   Yorumlar, kodunuzun okunabilirliğini artırmak ve kodu belgelemek için kullanılır. Programınızın anlaşılabilir olması ve başkaları tarafından kolayca takip edilebilmesi için düzenli olarak yorum eklemek iyi bir pratiktir.
+
+## 7. Global değişken ne demektir? Açıklayınız
+
+Global değişken, bir programın veya bir betik dosyasının genel kapsamında tanımlanan ve programın herhangi bir yerinde erişilebilen bir değişkendir. Global değişkenler, genellikle programın başlangıcında tanımlanır ve programın sonuna kadar yaşarlar.
+
+Bir global değişken, genellikle fonksiyonlar, bloklar veya başka bir kapsam içinde değil, dosyanın veya betiğin en üst düzeyinde tanımlanır. Bu durumda, değişken tüm programın kapsamına dahil edilir.
+
+Örnek:
+
+```JavaScript
+	var globalVariable = "Bu bir global değişkendir.";
+	function  exampleFunction() {
+		console.log(globalVariable); // Global değişkene burada erişilebilir.
+	}
+
+	exampleFunction(); // Çıktı: Bu bir global değişkendir.
+	console.log(globalVariable); // Çıktı: Bu bir global değişkendir.
+```
+
+Bu örnekte `globalVariable`, fonksiyon içinde ve fonksiyon dışında erişilebilir. Ancak, global değişkenlerin aşırı kullanımı, programın karmaşıklığını artırabilir ve hata olasılıklarını artırabilir, bu nedenle dikkatlice kullanılmalıdır. Modern JavaScript uygulamalarında genellikle daha sınırlı kapsamlara sahip değişkenler kullanmak ve global kapsamdan kaçınmak önerilir.
