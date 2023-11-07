@@ -379,4 +379,4 @@ JavaScript'te `==` (loose equality) ve `===` (strict equality) karşılaştırma
 
 `let`, `var` ve `const` farklarını gösteren tablo aşağıda verilmiştir. (Y=Yes, N=No)
 
-<p align="center">  <img src="let-var-const.png" alt="let-var-const tablosu">  </p>
+<p align="center">  <img src="https://miro.medium.com/v2/resize:fit:972/1*vgxOaRGDfCF6ImIo6Faubw.png" alt="let-var-const tablosu">  </p>
