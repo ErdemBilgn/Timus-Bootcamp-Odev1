@@ -1,4 +1,4 @@
-<h1 align="center">Bu metin satırını ekrana ortala</h1>
+<h1 align="center">Timus Full Stack Bootcamp Hafta 1-2 Ödevi</h1>
 
 ## 1. JavaScript nedir ve tarihsel gelişiminden bahsedin.
 
@@ -72,7 +72,7 @@ JavaScript'te veri tutmak için kullanılar veri tiplerini **2 ayrı grupta** in
 
 ### Basit (Primitive) Veri Tipleri
 
-Primitive veri tipleri, JavaScript'te değerleri doğrudan içerir . Ayrıca, primitive veri tipleri bellekte bir kopyasını tutar, bu nedenle bir değişkenin değeri başka bir değişkene atandığında, orijinal değişkenin değeri değişmez. Bu, primitive veri tiplerinin "pass-by-value" (değer ile geçme) davranışına sahip olduğu anlamına gelir.
+Primitive veri tipleri, JavaScript'te değerleri doğrudan içerir . Ayrıca, primitive veri tipleri bellekte bir kopyasını tutar, bu nedenle bir değişkenin değeri başka bir değişkene atandığında, orijinal değişkenin değeri değişmez. Bu, primitive veri tiplerinin "pass-by-value" (değer ile geçme) davranışına sahip olduğu anlamına gelir. Primitive veri tiplerinden bazıları şunlardır:
 
 **1. Number (Sayı):**
 
@@ -134,7 +134,7 @@ Primitive veri tipleri, JavaScript'te değerleri doğrudan içerir . Ayrıca, pr
 
 ### Referans Veri Tipleri
 
-Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bellekte bir referans aracılığıyla tutulur. Bu, değişkenler arasında bu değerlerin paylaşılmasını ve referans üzerinden değiştirilebilmesini sağlar.
+Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bellekte bir referans aracılığıyla tutulur. Bu, değişkenler arasında bu değerlerin paylaşılmasını ve referans üzerinden değiştirilebilmesini sağlar. Referans veri tiplerinden bazıları şunlardır:
 
 **1. Object (Objeler):**
 
@@ -154,7 +154,7 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 
 ```JavaScript
 	let numbers = [1, 2, 3, 4, 5];
-   let fruits = ["apple", "pear", "strawberry"];`
+    let fruits = ["apple", "pear", "strawberry"];`
 ```
 
 **3. Function (Fonksiyonlar):**
