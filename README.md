@@ -288,3 +288,40 @@ Bir global değişken, genellikle fonksiyonlar, bloklar veya başka bir kapsam i
 ```
 
 Bu örnekte `globalVariable`, fonksiyon içinde ve fonksiyon dışında erişilebilir. Ancak, global değişkenlerin aşırı kullanımı, programın karmaşıklığını artırabilir ve hata olasılıklarını artırabilir, bu nedenle dikkatlice kullanılmalıdır. Modern JavaScript uygulamalarında genellikle daha sınırlı kapsamlara sahip değişkenler kullanmak ve global kapsamdan kaçınmak önerilir.
+
+## 8. Javascript’te 'this' anahtar kelimesi nedir? Açıklayınız.
+
+JavaScript'te `this` anahtar kelimesi, belirli bir bağlamdaki (context) nesneyi referans alır. `this`, bir fonksiyonun içinde veya bir nesne içinde kullanıldığında, o anki bağlamı belirtir.
+
+`this`'in değeri, fonksiyonun nasıl çağrıldığına bağlı olarak değişir. İki temel durumda `this`'in değeri belirlenir:
+
+1.**Fonksiyonlar içinde:**
+
+- Eğer bir fonksiyon bir nesne içinde çağrılıyorsa, `this`, o fonksiyonun çağrıldığı nesneyi referans alır.
+
+  ```JavaScript
+  let person = {
+  	name: "John",
+  	sayHello: function() {
+  		console.log("Merhaba, ben " + this.name);
+  	}
+  };
+
+  person.sayHello(); // Çıktı: Merhaba, ben John
+  ```
+
+2.**Global Kapsamda:**
+
+- Eğer bir fonksiyon global kapsamda (bağlam dışında) çağrılıyorsa, `this`, genellikle `window` nesnesini referans alır (tarayıcı ortamında).
+
+  ```JavaScript
+  function  globalFunction() {
+  	console.log(this); // Tarayıcıda: Window nesnesi
+  }
+
+  globalFunction();
+  ```
+
+`this`'in değeri, `call`, `apply`, veya `bind` gibi fonksiyonlarla özel olarak belirlenebilir. Bu yöntemlerle bir fonksiyonun `this` değeri belirli bir nesne olarak atanabilir.
+
+Önemli bir not: Arrow (ok) fonksiyonları, kendi `this` bağlamını oluştururlar ve genellikle tanımlandıkları kapsamdaki `this`'i referans alırlar.
