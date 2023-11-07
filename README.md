@@ -295,7 +295,7 @@ JavaScript'te `this` anahtar kelimesi, belirli bir bağlamdaki (context) nesneyi
 
 `this`'in değeri, fonksiyonun nasıl çağrıldığına bağlı olarak değişir. İki temel durumda `this`'in değeri belirlenir:
 
-1.**Fonksiyonlar içinde:**
+**1.Fonksiyonlar içinde:**
 
 - Eğer bir fonksiyon bir nesne içinde çağrılıyorsa, `this`, o fonksiyonun çağrıldığı nesneyi referans alır.
 
@@ -310,7 +310,7 @@ JavaScript'te `this` anahtar kelimesi, belirli bir bağlamdaki (context) nesneyi
   person.sayHello(); // Çıktı: Merhaba, ben John
   ```
 
-2.**Global Kapsamda:**
+**2.Global Kapsamda:**
 
 - Eğer bir fonksiyon global kapsamda (bağlam dışında) çağrılıyorsa, `this`, genellikle `window` nesnesini referans alır (tarayıcı ortamında).
 
@@ -325,3 +325,52 @@ JavaScript'te `this` anahtar kelimesi, belirli bir bağlamdaki (context) nesneyi
 `this`'in değeri, `call`, `apply`, veya `bind` gibi fonksiyonlarla özel olarak belirlenebilir. Bu yöntemlerle bir fonksiyonun `this` değeri belirli bir nesne olarak atanabilir.
 
 Önemli bir not: Arrow (ok) fonksiyonları, kendi `this` bağlamını oluştururlar ve genellikle tanımlandıkları kapsamdaki `this`'i referans alırlar.
+
+## 9. == ile === farkını örnekler ile açıklayınız.
+
+JavaScript'te `==` (loose equality) ve `===` (strict equality) karşılaştırma operatörleri arasındaki temel fark, değerlerin eşit olup olmadığını kontrol ederken tip dönüşümü yapılıp yapılmayacağıdır.
+
+### `==` (Loose Equality):
+
+- `==` operatörü, değerleri karşılaştırırken tip dönüşümü yapabilir.
+- Eğer değerler farklı türlerdeyse, JavaScript tip dönüşümü gerçekleştirip değerleri aynı türe çevirmeye çalışır.
+  ```JavaScript
+  console.log(5 == "5"); // true (Tip dönüşümü yapıldı, değerler eşit)
+  console.log(true == 1); // true (Tip dönüşümü yapıldı, değerler eşit)
+  console.log(null == undefined); // true (Tip dönüşümü yapıldı, değerler eşit)
+  ```
+
+### `===` (Strict Equality):
+
+- `===` operatörü, değerleri karşılaştırırken tip dönüşümü yapmaz.
+- Değerlerin türleri ve değerleri tam olarak eşleşmelidir.
+
+  ```JavaScript
+  console.log(5 === "5"); // false (Tür dönüşümü yapılmadı, değerler farklı)
+  console.log(true === 1); // false (Tür dönüşümü yapılmadı, değerler farklı)
+  console.log(null === undefined); // false (Tür dönüşümü yapılmadı, değerler farklı)
+  ```
+
+  ```JavaScript
+  let obj1 = { name: "John" };
+  let obj2 = { name: "John" };
+
+  console.log(obj1 == obj2); // false (Referanslar farklı, değerlere bakılmaz)
+  console.log(obj1 === obj2); // false (Referanslar farklı, değerlere bakılmaz)
+  ```
+
+  Bu örnekte, `obj1` ve `obj2` farklı referanslara sahip iki farklı nesnedir. `===` kullanıldığında, referanslar karşılaştırıldığı için sonuç `false` olur.
+
+  ```JavaScript
+  let arr1 = [1, 2, 3];
+  let arr2 = [1, 2, 3];
+
+  console.log(arr1 == arr2); // false (Referanslar farklı, değerlere bakılmaz)
+  console.log(arr1 === arr2); // false (Referanslar farklı, değerlere bakılmaz)
+  ```
+
+  Bu örnekte, `arr1` ve `arr2` farklı referanslara sahip iki farklı dizi. `===` kullanıldığında, referanslar karşılaştırıldığı için sonuç `false` olur.
+
+  `===` operatörü, nesne ve dizilerde değerlere bakmaz, yalnızca referansları karşılaştırır. Bu nedenle, eğer değerlere dayalı bir karşılaştırma yapmak istiyorsanız, özel bir karşılaştırma fonksiyonu kullanmanız veya içeriklerini ayrı ayrı kontrol etmeniz gerekir.
+
+  Genel olarak, mümkünse `===` operatörünü kullanmak, tip dönüşümü olmadan sıkı bir eşitlik kontrolü yapmanızı sağlar ve beklenmeyen sonuçları önleyebilir. Ancak, belirli durumlarda tip dönüşümü isteniyorsa veya gerekliyse, `==` kullanılabilir.
