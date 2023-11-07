@@ -374,3 +374,9 @@ JavaScript'te `==` (loose equality) ve `===` (strict equality) karşılaştırma
   `===` operatörü, nesne ve dizilerde değerlere bakmaz, yalnızca referansları karşılaştırır. Bu nedenle, eğer değerlere dayalı bir karşılaştırma yapmak istiyorsanız, özel bir karşılaştırma fonksiyonu kullanmanız veya içeriklerini ayrı ayrı kontrol etmeniz gerekir.
 
   Genel olarak, mümkünse `===` operatörünü kullanmak, tip dönüşümü olmadan sıkı bir eşitlik kontrolü yapmanızı sağlar ve beklenmeyen sonuçları önleyebilir. Ancak, belirli durumlarda tip dönüşümü isteniyorsa veya gerekliyse, `==` kullanılabilir.
+
+## 10. let var const farkını tablo yapınız.
+
+`let`, `var` ve `const` farklarını gösteren tablo aşağıda verilmiştir. (Y=Yes, N=No)
+
+<p align="center">  <img src="let-var-const.png" alt="let-var-const tablosu">  </p>
