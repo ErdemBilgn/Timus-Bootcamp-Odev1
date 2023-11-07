@@ -204,3 +204,41 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 - Genellikle, `null`'ı bir nesnenin beklenen değeri olmadığını ifade etmek veya bir değişkenin başlangıç değeri olarak atanmış bir boş değeri ifade etmek için kullanılır.
 
 Özetle, `undefined` genellikle bir değişkenin henüz bir değer almadığını ifade ederken, `null` bir değişkenin bilinçli olarak boş olduğunu ifade eder. Her ikisi de JavaScript'te "falsy" değerlerdir, yani bir koşul ifadesinde false olarak değerlendirilirler.
+
+## NaN nedir? Açıklayınız
+
+`NaN` (Not a Number), JavaScript'te bir özel değerdir ve "Sayı Değil" anlamına gelir. `NaN`, matematiksel bir işlemin sonucu sayı olmayan bir değer olduğunda ortaya çıkar. `NaN`, genellikle sayısal operasyonlarda hata durumlarını temsil etmek için kullanılır.
+
+Birkaç durumda `NaN` elde edilebilir:
+
+**1. Matematiksel İşlemlerde Hatalar:**
+
+- Belirli matematiksel işlemler, tanımsız veya sınırsız sonuçlara yol açabilir ve bu durumda `NaN` elde edilir.
+
+```JavaScript
+	let result = 0 / 0; // NaN
+```
+
+**2. Sayısal Olmayan Veri Tipleriyle Matematiksel İşlemler:**
+
+- Sayısal olmayan bir değerle matematiksel bir işlem yapıldığında, sonuç `NaN` olabilir.
+
+```JavaScript
+	let result = "hello" * 5; // NaN
+```
+
+**3. `NaN` ile Karşılaştırmalar:**
+
+- Herhangi bir sayısal değer `NaN` ile karşılaştırıldığında sonuç genellikle `false` olur.
+
+```JavaScript
+	console.log(NaN === NaN); // false
+```
+
+- `NaN`, herhangi bir sayısal değerle eşit değildir, hatta kendisiyle bile eşit değildir. Bu nedenle, `NaN`'ı kontrol etmek için `isNaN()` fonksiyonu kullanılabilir.
+
+```JavaScript
+	console.log(isNaN(NaN)); // true
+	console.log(isNaN("hello")); // true
+	console.log(isNaN(42)); // false
+```
