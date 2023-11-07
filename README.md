@@ -153,8 +153,8 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 - `Array` türü, sıralı veri koleksiyonlarını temsil eder. Her öğe bir indeksle erişilebilir.
 
 ```JavaScript
-	let numbers = [1, 2, 3, 4, 5];
-    let fruits = ["apple", "pear", "strawberry"];`
+    let numbers = [1, 2, 3, 4, 5];
+    let fruits = ["apple", "pear", "strawberry"];
 ```
 
 **3. Function (Fonksiyonlar):**
@@ -186,3 +186,21 @@ Bu türler, JavaScript'te referans veri tiplerini temsil eder ve değerleri bell
 	let mySet = new  Set();
 	mySet.add("value1");
 ```
+
+## Null ve Undefined arasındaki fark nedir? Açıklayınız
+
+`null` ve `undefined` JavaScript'te iki farklı değerdir, ancak kullanım amaçları birbirinden biraz farklıdır.
+
+**`1. Undefined`:**
+
+- `undefined`, bir değişkenin değerinin atanmamış olduğunu gösterir. Yani, bir değişken tanımlanmış ancak bir değer atanmamışsa, JavaScript otomatik olarak bu değişkenin değerini `undefined` yapar.
+
+- Ayrıca, bir fonksiyonun geri dönüş değeri belirtilmediğinde veya bir fonksiyonun parametrelerinden birine değer atanmadığında da `undefined` elde edilir.
+
+**`2. null`:**
+
+- `null`, bir değişkenin bilinçli olarak boş olduğunu ifade eder. Yani, bir değişkenin değerini bilinçli olarak boşaltmak istiyorsanız, `null` kullanabilirsiniz.
+
+- Genellikle, `null`'ı bir nesnenin beklenen değeri olmadığını ifade etmek veya bir değişkenin başlangıç değeri olarak atanmış bir boş değeri ifade etmek için kullanılır.
+
+Özetle, `undefined` genellikle bir değişkenin henüz bir değer almadığını ifade ederken, `null` bir değişkenin bilinçli olarak boş olduğunu ifade eder. Her ikisi de JavaScript'te "falsy" değerlerdir, yani bir koşul ifadesinde false olarak değerlendirilirler.
