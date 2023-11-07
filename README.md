@@ -380,3 +380,61 @@ JavaScript'te `==` (loose equality) ve `===` (strict equality) karşılaştırma
 `let`, `var` ve `const` farklarını gösteren tablo aşağıda verilmiştir. (Y=Yes, N=No)
 
 <p align="center">  <img src="https://miro.medium.com/v2/resize:fit:972/1*vgxOaRGDfCF6ImIo6Faubw.png" alt="let-var-const tablosu">  </p>
+
+## 11. Arrow fonksiyonun normal fonksiyondan farkları nelerdir?
+
+Arrow fonksiyonları (ok fonksiyonları) ve normal fonksiyonlar (fonksiyon ifadeleri ve fonksiyon deklarasyonları) arasında birkaç fark vardır. Bu farklardan bazıları şunlardır:
+
+**1. `this` Bağlamı:**
+
+- Arrow fonksiyonları, kendi `this` bağlamını oluştururlar ve dış kapsamdaki `this`'i alırlar. Bu, arrow fonksiyonlarıyla oluşturulan fonksiyonlarda `this`'in dinamik değişmediği anlamına gelir.
+  ```JavaScript
+  var person = {
+  name: "John",
+  sayHello: function() {
+  console.log("Merhaba, ben " + this.name);
+  }
+  }; person.sayHello(); // Çıktı: Merhaba, ben John
+
+      var person = {
+      	name: "John",
+      	sayHello: () => {
+      		console.log("Merhaba, ben " + this.name);
+      	}
+      };
+      person.sayHello(); // Çıktı: Merhaba, ben undefined
+      ```
+
+  **2. Argümanlar (arguments) Objesi:**
+
+- Arrow fonksiyonları `arguments` nesnesini tanımlamazlar. Ancak, normal fonksiyonlar bu nesneyi kullanabilir.
+
+  ```JavaScript
+  var normalFunction = function() {
+  	console.log(arguments); // [1, 2, 3]
+  };
+  var  arrowFunction = () => {
+  	console.log(arguments); // ReferenceError: arguments is not defined };
+
+  normalFunction(1, 2, 3);
+  // arrowFunction(1, 2, 3); // Hata: arguments is not defined
+  ```
+
+**3. `new` İle Kullanım:**
+
+- Arrow fonksiyonları, `new` ile kullanılmak üzere tasarlanmamışlardır. Yani, arrow fonksiyonları constructor olarak kullanılamazlar.
+  `JavaScript
+	let NormalConstructor = function() { 
+		this.value = 1; 
+	}; 
+	
+	let normalInstance = new  NormalConstructor(); 
+	console.log(normalInstance.value); // 1  
+	
+	let ArrowConstructor = () => { 
+		this.value = 1; 
+	}; 
+	
+	let arrowInstance = new ArrowConstructor(); // Hata: ArrowConstructor is not a constructor
+	`
+  Bu farklar göz önüne alındığında, arrow fonksiyonlarının daha kısa sözdizimi ve `this` bağlamındaki davranışı nedeniyle özellikle callback fonksiyonlarında ve kısa işlevsel ifadelerde tercih edildiğini görebiliriz. Ancak, kullanım senaryolarına bağlı olarak normal fonksiyonlar da gereklidir.
