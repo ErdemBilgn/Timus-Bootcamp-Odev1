@@ -642,6 +642,7 @@ Cookie, local storage ve session storage farkları tablosu aşağıda verilmişt
 ## 19. Asenkron ve senkron işlem farkı nedir?
 
 Senkron ve asenkron işlemler arasındaki temel fark, işlemlerin nasıl gerçekleştiği ve birbirleriyle nasıl etkileşimde bulunduklarıdır.
+
 **1. Senkron İşlemler:**
 
 - Senkron işlemlerde, işlemler sırasıyla ve adım adım gerçekleşir. Bir işlem tamamlanmadan diğeri başlamaz.
@@ -655,3 +656,38 @@ Senkron ve asenkron işlemler arasındaki temel fark, işlemlerin nasıl gerçek
 - Asenkron işlemler genellikle ağ çağrıları, dosya okuma/yazma, kullanıcı etkileşimleri gibi uzun süreli işlemler için uygundur.
 
 Senkron işlemler genellikle daha basit ve doğrusal problemler için uygunken, asenkron işlemler daha karmaşık ve uzun süreli görevler için daha uygundur. Modern web geliştirmesi genellikle asenkron yapıda olup, kullanıcı etkileşimleri ve ağ çağrıları gibi işlemleri ele almak için asenkron programlama prensiplerini benimser.
+
+## 20. Promise nedir ve neden ihtiyaç duyarız?
+
+Promise, JavaScript'te asenkron programlamayı daha etkili ve okunabilir hale getiren bir nesnedir. Promise, bir değeri temsil eden ve gelecekte tamamlanacak bir asenkron işlemi temsil eden bir objedir. Bir işlem tamamlandığında ya da hata oluştuğunda, Promise bu durumu temsil eden bir değeri döner.
+
+Promise'ler, özellikle ağ çağrıları, dosya okuma/yazma, veritabanı sorguları gibi uzun süreli işlemleri ele almak için kullanılır. Promise'lerin neden önemli olduğuna dair bazı nedenler şunlardır:
+
+1.  **Asenkron İşlemlerin Daha Okunabilir Kodlarla Yönetilmesi:** Promise'ler, asenkron işlemleri daha okunabilir ve yönetilebilir hale getirir. Callback hell (callback cehennemi) olarak adlandırılan derinleşen callback yapılarından kaçınmamıza yardımcı olur.
+2.  **İşlemlerin Sıralı Yürütülmesi:** Promise'ler, işlemleri sıralı bir şekilde yürütmek ve bir işlem tamamlandığında diğerine geçmek için kullanılabilir. Bu, program akışını daha iyi kontrol etmeyi sağlar.
+3.  **Hata Yönetimi:** Promise'ler, hata yönetimini daha etkili bir şekilde gerçekleştirmemize olanak tanır. `.then()` ve `.catch()` yöntemleri sayesinde başarılı ve başarısız durumları yönetebiliriz.
+4.  **Birden Çok Asenkron İşlemin Koordinasyonu:** Birden çok asenkron işlemin koordinasyonu, Promise zincirleri kullanılarak daha düzenli bir şekilde sağlanabilir. Bu, özellikle bir dizi asenkron işlemin sırasını ve koşullarını kontrol etmek için önemlidir.
+
+Örneğin, bir ağ çağrısının sonucunu beklemek için bir Promise kullanabiliriz. Aşağıda basit bir örnek verilmiştir:
+
+```javascript
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = { message: "Veri başarıyla alındı" };
+      resolve(data); // Başarılı durum
+      // reject('Hata: Veri alınamadı'); // Hata durumu
+    }, 2000);
+  });
+};
+
+fetchData()
+  .then((data) => {
+    console.log(data.message);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+Bu örnekte, `fetchData` fonksiyonu bir Promise döndürüyor ve `.then()` ve `.catch()` yöntemleri kullanılarak başarılı ve başarısız durumlar yönetiliyor. Bu, asenkron işlemlerin daha düzenli bir şekilde ele alınmasına olanak tanır.
