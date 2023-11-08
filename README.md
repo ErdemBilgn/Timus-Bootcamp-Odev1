@@ -878,3 +878,128 @@ const { max2, min2 } = arr.reduce(
 console.log(max2); // 10
 console.log(min2); // 1
 ```
+
+## Bu kodun çıktısı nedir? Neden?
+
+```javascript
+function job() {
+  return new Promise(function (resolve, reject) {
+    reject();
+  });
+}
+
+let promise = job();
+
+promise
+  .then(function () {
+    console.log("Success 1");
+  })
+  .then(function () {
+    console.log("Success 2");
+  })
+  .then(function () {
+    console.log("Success 3");
+  })
+  .catch(function () {
+    console.log("Error 1");
+  })
+  .then(function () {
+    console.log("Success 4");
+  });
+```
+
+Yukarıda başarısız bir promise döndüren bir `job()` fonksyonu tanımlanmıştır. Bu yüzden ilk üç `.then()` bloğuna girmeyecek ve direkt `.catch()` bloğunda yakalanacaktır. `.catch()` işlemi tamamlandıktan sonra peşinden gelen `.then()` bloğuna girilecektir. Program tamamlandığında çıktı şu şekilde görünecektir:
+
+```javascript
+"Error 1";
+"Success 4";
+```
+
+## Bu kodun çıktısı nedir? Neden?
+
+```javascript
+function job(state) {
+  return new Promise(function (resolve, reject) {
+    if (state) {
+      resolve("success");
+    } else {
+      reject("error");
+    }
+  });
+}
+
+let promise = job(true);
+
+promise
+  .then(function (data) {
+    // 1.then bloğu
+    console.log(data);
+
+    return job(true);
+  })
+  .then(function (data) {
+    // 2.then bloğu
+    if (data !== "victory") {
+      throw "Defeat";
+    }
+    return job(true);
+  })
+  .then(function (data) {
+    // 3.then bloğu
+    console.log(data);
+  })
+  .catch(function (error) {
+    // 4.catch bloğu
+    console.log(error);
+
+    return job(false);
+  })
+  .then(function (data) {
+    // 5.then bloğu
+    console.log(data);
+
+    return job(true);
+  })
+  .catch(function (error) {
+    // 6.catch bloğu
+    console.log(error);
+
+    return "Error caught";
+  })
+  .then(function (data) {
+    // 7.then bloğu
+    console.log(data);
+
+    return new Error("test");
+  })
+  .then(function (data) {
+    // 8.then bloğu
+    console.log("Success:", data.message);
+  })
+  .catch(function (data) {
+    // 9.catch bloğu
+    console.log("Error:", data.message);
+  });
+```
+
+Yukarıda girilen parametreye göre `resolve()` ve ya `reject()` döndüren bir `job()` fonksiyonu tanımlanmıştır.
+
+İlk gelen promise `resolve` olduğu için `1. then bloğu` 'na girilip `success` yazdırılacaktır.
+
+Buradan dönen promise `resolve` olduğu için `2.then bloğu` 'na girilecektir. Burada `if` yapısının içine girilip bir `Defeat` erroru fırlatılacaktır. buradan error döndüğü için bu error `4.catch bloğu`'nda yakalanıp `Defeat` yazdırılacaktır.
+
+Buradan dönen promise `reject` olduğu için `6.catch bloğu`'nun içine girilip `error` yazdırılacaktır.
+
+Buradan bir string döndüğü için `7.then bloğu`'na girilip `Error caught` yazdırılacaktır.
+
+Buradan Error("test") objesi döndürüldüğü için(fırlatılmadığı için) `8.then bloğu`'na girilecek ve `Success: test` yazdırılacaktır.
+
+Programın sonunda çıktı şu şekilde görünecektir.
+
+```javascript
+success
+Defeat
+error
+Error caught
+Success: test
+```
