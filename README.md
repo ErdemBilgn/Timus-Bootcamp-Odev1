@@ -638,3 +638,20 @@ Cookie, local storage ve session storage farkları tablosu aşağıda verilmişt
 
 <p align="center"><img src = "https://i.stack.imgur.com/6EL55.png"/>
 </p>
+
+## 19. Asenkron ve senkron işlem farkı nedir?
+
+Senkron ve asenkron işlemler arasındaki temel fark, işlemlerin nasıl gerçekleştiği ve birbirleriyle nasıl etkileşimde bulunduklarıdır.
+**1. Senkron İşlemler:**
+
+- Senkron işlemlerde, işlemler sırasıyla ve adım adım gerçekleşir. Bir işlem tamamlanmadan diğeri başlamaz.
+- İşlemler, sıralı bir şekilde yürütülür ve bir işlemin tamamlanması diğerine geçilmeden beklenir.
+- Senkron işlemler genellikle basit ve doğrusal problemler için uygundur.
+
+**2. Asenkron İşlemler:**
+
+- Asenkron işlemlerde, işlemler eşzamansız olarak çalışır. Bir işlem tamamlanırken diğer işlemler aynı anda devam edebilir.
+- İşlemler arasında bağımlılık yoktur ve bir işlem tamamlandığında bir callback veya promise kullanılarak diğer işlemlere geçilebilir.
+- Asenkron işlemler genellikle ağ çağrıları, dosya okuma/yazma, kullanıcı etkileşimleri gibi uzun süreli işlemler için uygundur.
+
+Senkron işlemler genellikle daha basit ve doğrusal problemler için uygunken, asenkron işlemler daha karmaşık ve uzun süreli görevler için daha uygundur. Modern web geliştirmesi genellikle asenkron yapıda olup, kullanıcı etkileşimleri ve ağ çağrıları gibi işlemleri ele almak için asenkron programlama prensiplerini benimser.
