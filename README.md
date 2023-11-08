@@ -487,3 +487,31 @@ function  toplama(a, b) {
 ```
 
 Bu fonksiyon her zaman aynı girdi değerleriyle çağrıldığında aynı sonucu üretir ve herhangi bir yan etkisi yoktur. Diğer bir deyişle, dış dünyada herhangi bir durumu değiştirmez.
+
+## 14. Rest operatör nedir? Örnekle açıklayınız.
+
+Rest operatörü, JavaScript'te bir dizi içindeki geri kalan elemanları bir değişkene atamak veya bir fonksiyona parametre olarak iletmek için kullanılan bir operatördür. Genellikle üç nokta (`...`) ile ifade edilir.
+
+Rest operatörü, bir dizi içindeki belirli elemanları almak yerine, geri kalan elemanları bir başka değişkene toplar. Aşağıda bir örneği verilmiştir.
+
+```JavaScript
+const [ilkEleman, ikinciEleman, ...geriKalanElemanlar] = [1, 2, 3, 4, 5];
+
+console.log(ilkEleman); // 1
+console.log(ikinciEleman); // 2
+console.log(geriKalanElemanlar); // [3, 4, 5]
+```
+
+Bu örnekte, `...geriKalanElemanlar` rest operatörü kullanılarak dizinin geri kalan elemanları bir dizi olarak alınmıştır.
+
+Aynı rest operatörü fonksiyon parametrelerinde de kullanılabilir. Örneğin:
+
+```JavaScript
+function  topla(...sayilar) {
+	return sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+}
+
+console.log(topla(1, 2, 3, 4, 5)); // 15
+```
+
+Bu örnekte, `...sayilar` rest operatörü, fonksiyona geçilen tüm sayıları bir dizi olarak toplar. `reduce` fonksiyonu kullanılarak bu sayılar toplanır. Bu, fonksiyonun herhangi bir sayı miktarını alabilmesini sağlar.
