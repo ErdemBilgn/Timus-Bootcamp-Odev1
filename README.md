@@ -444,3 +444,30 @@ Arrow fonksiyonları (ok fonksiyonları) ve normal fonksiyonlar (fonksiyon ifade
   ```
 
   Bu farklar göz önüne alındığında, arrow fonksiyonlarının daha kısa sözdizimi ve`this` bağlamındaki davranışı nedeniyle özellikle callback fonksiyonlarında ve kısa işlevsel ifadelerde tercih edildiğini görebiliriz. Ancak, kullanım senaryolarına bağlı olarak normal fonksiyonlar da gereklidir.
+
+## 12. Switch bloğu içinde hatasız nasıl değişken tanımlanır?
+
+`switch` bloğu içinde bir değişken tanımlamak, genellikle tercih edilmeyen bir pratiktir çünkü `switch` bloğu, bir değerin farklı durumlarını kontrol etmek için kullanılır ve her durum için ayrı bir kod bloğu içerir. Değişken tanımlamak, her bir durumun kod bloğunun içinde genellikle işlevsiz olacaktır çünkü değişkenin kapsamı sadece o durumun içinde olacaktır.
+
+Ancak, eğer bu işlemi gerçekten yapmak istiyorsanız, `let` veya `var` kullanabilirsiniz. Ancak, bu durumda değişkenin kapsamı sadece o durum içinde geçerli olacaktır ve başka durumlar veya bloklar tarafından erişilemeyecektir. Ayrıca hata almamak için tanımlanacak olan değişkenin süslü parantezler içine alınması gerekir. Bu durumun bir örneği aşağıda verilmiştir.
+
+```JavaScript
+switch (durum) {
+	case  'aktif': {
+		let mesaj = 'Durum aktif.';
+		console.log(mesaj);
+		break;
+	}
+	case  'pasif': {
+		let mesaj = 'Durum pasif.';
+		console.log(mesaj);
+		break;
+	}
+	default: {
+		let mesaj = 'Bilinmeyen durum.';
+		console.log(mesaj);
+	}
+}
+```
+
+Ancak, yukarıdaki örnekte görebileceğiniz gibi, her durum için ayrı bir `mesaj` değişkeni tanımlamak, genellikle gereksiz bir karmaşıklığa neden olabilir. Genellikle, `switch` bloğu içinde değişken tanımlamak yerine, `switch` bloğu dışında bir değişken tanımlayıp onu içinde kullanmak daha temiz bir kod yapısı sağlar.
