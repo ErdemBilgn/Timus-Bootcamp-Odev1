@@ -471,3 +471,19 @@ switch (durum) {
 ```
 
 Ancak, yukarıdaki örnekte görebileceğiniz gibi, her durum için ayrı bir `mesaj` değişkeni tanımlamak, genellikle gereksiz bir karmaşıklığa neden olabilir. Genellikle, `switch` bloğu içinde değişken tanımlamak yerine, `switch` bloğu dışında bir değişken tanımlayıp onu içinde kullanmak daha temiz bir kod yapısı sağlar.
+
+## 13. Pure fonksiyon ne demektir? Açıklayınız.
+
+Bir fonksiyonun "pure" (saf) olması, iki ana özelliğe dayanır: belirli bir girdi seti için her zaman aynı çıktıyı üretir ve yan etkileri yoktur. İlk özelliğe referansla, aynı girdi değerleriyle çağrılan bir saf fonksiyon her zaman aynı sonucu üretmelidir. İkinci özellikle ilgili olarak, fonksiyonun diğer program bileşenleri üzerinde bir etkisi olmamalıdır, yani dış dünyada değişikliklere neden olmamalıdır.
+
+Saf fonksiyonlar, programlamada özellikle fonksiyonel programlama paradigmasında önemli bir konsepttir. Bu tür fonksiyonlar, hata ayıklamayı kolaylaştırır, test edilebilirliği artırır ve programın daha tahmin edilebilir olmasını sağlar.
+
+Örneğin, aşağıdaki JavaScript fonksiyonu bir saf fonksiyon örneğidir:
+
+```JavaScript
+function  toplama(a, b) {
+	return a + b;
+}
+```
+
+Bu fonksiyon her zaman aynı girdi değerleriyle çağrıldığında aynı sonucu üretir ve herhangi bir yan etkisi yoktur. Diğer bir deyişle, dış dünyada herhangi bir durumu değiştirmez.
