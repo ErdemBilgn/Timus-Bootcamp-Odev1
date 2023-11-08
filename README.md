@@ -515,3 +515,28 @@ console.log(topla(1, 2, 3, 4, 5)); // 15
 ```
 
 Bu örnekte, `...sayilar` rest operatörü, fonksiyona geçilen tüm sayıları bir dizi olarak toplar. `reduce` fonksiyonu kullanılarak bu sayılar toplanır. Bu, fonksiyonun herhangi bir sayı miktarını alabilmesini sağlar.
+
+## 15. Object destructuring nedir? Örnekle açıklayınız.
+
+Object destructuring, JavaScript'te bir nesne içindeki özellikleri ayrıştırarak, bunları ayrı değişkenlere atamak için kullanılan bir özelliktir. Bu, nesne içindeki özelliklere daha kolay erişim sağlar ve kodu daha okunabilir hale getirir.
+
+Aşağıda bir örnek verilmiştir.
+
+```JavaScript
+const kullanici = {
+	ad: 'John',
+	soyad: 'Doe',
+	yas: 30
+};
+
+// Object destructuring kullanarak nesne özelliklerini ayrıştırma
+const { ad, soyad, yas } = kullanici; // Ayrıştırılmış değerleri kullanma
+
+console.log(ad); // 'John'
+console.log(soyad); // 'Doe'
+console.log(yas); // 30
+```
+
+Bu örnekte, `kullanici` adında bir nesne var ve `const { ad, soyad, yas } = kullanici;` satırında object destructuring kullanılarak nesne özellikleri ayrıştırılmıştır. Bu sayede `ad`, `soyad` ve `yas` adında üç ayrı değişken oluşturulmuş ve bunlara sırasıyla "John", "Doe" ve 30 değerleri atanmıştır.
+
+Object destructuring, özellikle fonksiyonlardan dönen nesnelerden belirli özellikleri çıkarmak veya nesne içindeki özelliklere daha kolay erişim sağlamak için yaygın olarak kullanılır.
