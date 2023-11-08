@@ -819,3 +819,62 @@ Bu örnekte, `reduce` fonksiyonu kullanılarak bir obje oluşturuyoruz. Her elem
 - `splice` metodunu kullanarak bir diziyi değiştirebiliriz. Bu metod, bir dizinin belirli bir bölümünü çıkarabilir ve/veya yeni elemanlar ekleyebilir.
 - Parametre olarak başlangıç indeksi, kaç elemanın çıkarılacağı (opsiyonel) ve eklenen elemanlar alır.
 - `splice` metodu orijinal diziyi değiştirir.
+
+## `const arr = [1,2,3,4,5,6,7,7,8,6,10]; `
+
+## 1. Arrayindeki yinelenen sayıları bulun
+
+```javascript
+const repeatedValues = [
+  ...new Set(arr.filter((item, index) => arr.indexOf(item) !== index)),
+];
+console.log(repeatedValues); // [6, 7]
+```
+
+Bu örnekte, `Set` kullanarak yinelenen öğeleri filtreliyoruz. `filter` fonksiyonu ile, her bir öğenin dizideki ilk indeksi ile mevcut indeksi karşılaştırarak yinelenen öğeleri buluyoruz. Daha sonra, `Set` kullanarak bu yinelenen öğeleri tekrar bir diziye dönüştürüyoruz. Bu sayede, yinelenen sayıları elde etmiş oluyoruz.
+
+## 2. arrayindeki tüm yinelenen sayıları silip yeni bir arrayi 2 farklı method ile oluşturun.
+
+```javascript
+// filter ve indexOf() ile
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+const newArr1 = arr.filter((eleman, index) => arr.indexOf(eleman) === index);
+console.log(newArr1); // [1, 2, 3, 4, 5, 6, 7, 8, 10 ]
+```
+
+```javascript
+// Set ile
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+const newArr2 = [...new Set(arr)];
+console.log(newArr2); // [1, 2, 3, 4, 5, 6, 7, 8, 10]
+```
+
+## Arrayindeki en yüksek ve en düşük değeri 2 farklı methodla bulun.
+
+```javascript
+// Math ve Spread operatörü ile
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+
+const max1 = Math.max(...arr);
+const min1 = Math.min(...arr);
+
+console.log(max1); // 10
+console.log(min1); // 1
+```
+
+```javascript
+// reduce ile
+const arr = [1, 2, 3, 4, 5, 6, 7, 7, 8, 6, 10];
+
+const { max2, min2 } = arr.reduce(
+  (acc, value) => {
+    acc.max2 = Math.max(acc.max2, value);
+    acc.min2 = Math.min(acc.min2, value);
+    return acc;
+  },
+  { max2: Number.NEGATIVE_INFINITY, min2: Number.POSITIVE_INFINITY }
+);
+
+console.log(max2); // 10
+console.log(min2); // 1
+```
