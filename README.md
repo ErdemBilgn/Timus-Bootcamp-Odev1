@@ -64,7 +64,7 @@ Bu farklar, Java ve JavaScript'in farklı kullanım alanlarına ve tasarım fels
 
 ## 3. JavaScript'teki veri tipleri nelerdir? Açıklayınız.
 
-JavaScript'te veri tutmak için kullanılar veri tiplerini **2 ayrı grupta** inceleyebiliriz.
+JavaScript'te veri tutmak için kullanılan veri tiplerini **2 ayrı grupta** inceleyebiliriz.
 
 - Basit (Primitive) Veri Tipleri
 
@@ -833,7 +833,7 @@ console.log(repeatedValues); // [6, 7]
 
 Bu örnekte, `Set` kullanarak yinelenen öğeleri filtreliyoruz. `filter` fonksiyonu ile, her bir öğenin dizideki ilk indeksi ile mevcut indeksi karşılaştırarak yinelenen öğeleri buluyoruz. Daha sonra, `Set` kullanarak bu yinelenen öğeleri tekrar bir diziye dönüştürüyoruz. Bu sayede, yinelenen sayıları elde etmiş oluyoruz.
 
-## 2. arrayindeki tüm yinelenen sayıları silip yeni bir arrayi 2 farklı method ile oluşturun.
+## 2. Arrayindeki tüm yinelenen sayıları silip yeni bir arrayi 2 farklı method ile oluşturun.
 
 ```javascript
 // filter ve indexOf() ile
@@ -849,7 +849,7 @@ const newArr2 = [...new Set(arr)];
 console.log(newArr2); // [1, 2, 3, 4, 5, 6, 7, 8, 10]
 ```
 
-## Arrayindeki en yüksek ve en düşük değeri 2 farklı methodla bulun.
+## 3. Arrayindeki en yüksek ve en düşük değeri 2 farklı methodla bulun.
 
 ```javascript
 // Math ve Spread operatörü ile
@@ -908,7 +908,7 @@ promise
   });
 ```
 
-Yukarıda başarısız bir promise döndüren bir `job()` fonksyonu tanımlanmıştır. Bu yüzden ilk üç `.then()` bloğuna girmeyecek ve direkt `.catch()` bloğunda yakalanacaktır. `.catch()` işlemi tamamlandıktan sonra peşinden gelen `.then()` bloğuna girilecektir. Program tamamlandığında çıktı şu şekilde görünecektir:
+Yukarıda başarısız bir promise döndüren bir `job()` fonksyonu tanımlanmıştır. Bu yüzden ilk üç `.then()` bloğuna girmeyecek ve direkt `.catch()` bloğuna girilecektir. `.catch()` işlemi tamamlandıktan sonra peşinden gelen `.then()` bloğuna girilecektir. Program tamamlandığında çıktı şu şekilde görünecektir:
 
 ```javascript
 "Error 1";
