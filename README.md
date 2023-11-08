@@ -540,3 +540,58 @@ console.log(yas); // 30
 Bu örnekte, `kullanici` adında bir nesne var ve `const { ad, soyad, yas } = kullanici;` satırında object destructuring kullanılarak nesne özellikleri ayrıştırılmıştır. Bu sayede `ad`, `soyad` ve `yas` adında üç ayrı değişken oluşturulmuş ve bunlara sırasıyla "John", "Doe" ve 30 değerleri atanmıştır.
 
 Object destructuring, özellikle fonksiyonlardan dönen nesnelerden belirli özellikleri çıkarmak veya nesne içindeki özelliklere daha kolay erişim sağlamak için yaygın olarak kullanılır.
+
+## 16. 2 elemanlı bir objeyi 6 farklı şekilde oluşturunuz.
+
+**1. Objeyi Direkt Oluşturma:**
+
+```JavaScript
+const obj1 = { name: 'John', age: 25 };
+```
+
+**2. Objeyi `Object` Constructor'ıyla Oluşturma:**
+
+```JavaScript
+const obj2 = new Object({ name: 'Jane', age: 30 });
+```
+
+**3. Objeyi `Object.create()` ile Oluşturma:**
+
+```JavaScript
+const prototypeObj = { name: 'Charlie', age: 35 };
+const obj3 = Object.create(prototypeObj);
+```
+
+**4. Objeyi `Object.assign()` ile Oluşturma:**
+
+```JavaScript
+const targetObj= {};
+
+const sourceObj1= { name: 'John' };
+const sourceObj2= { age: 25 };
+
+Object.assign(targetObj, sourceObj1, sourceObj2);
+console.log(targetObj);
+```
+
+**5. Objeyi Fonksiyon ile Oluşturma:**
+
+```JavaScript
+function  createObject(name, age) {
+	return {name, age};
+}
+
+const obj5 = createObject('David', 40);
+```
+
+**6. Class Kullanarak Obje Oluşturma:**
+
+```JavaScript
+class myObject  {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+let obj6 = new myObject("John", 25);
+```
