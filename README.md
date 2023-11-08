@@ -452,25 +452,25 @@ Arrow fonksiyonları (ok fonksiyonları) ve normal fonksiyonlar (fonksiyon ifade
 Ancak, eğer bu işlemi gerçekten yapmak istiyorsanız, `let` veya `var` kullanabilirsiniz. Ancak, bu durumda değişkenin kapsamı sadece o durum içinde geçerli olacaktır ve başka durumlar veya bloklar tarafından erişilemeyecektir. Ayrıca hata almamak için tanımlanacak olan değişkenin süslü parantezler içine alınması gerekir. Bu durumun bir örneği aşağıda verilmiştir.
 
 ```JavaScript
-switch (durum) {
-	case  'aktif': {
-		let mesaj = 'Durum aktif.';
-		console.log(mesaj);
+switch (state) {
+	case  'active': {
+		let message = 'Durum aktif.';
+		console.log(message);
 		break;
 	}
-	case  'pasif': {
-		let mesaj = 'Durum pasif.';
-		console.log(mesaj);
+	case  'passive': {
+		let message = 'Durum pasif.';
+		console.log(message);
 		break;
 	}
 	default: {
-		let mesaj = 'Bilinmeyen durum.';
-		console.log(mesaj);
+		let message = 'Bilinmeyen durum.';
+		console.log(message);
 	}
 }
 ```
 
-Ancak, yukarıdaki örnekte görebileceğiniz gibi, her durum için ayrı bir `mesaj` değişkeni tanımlamak, genellikle gereksiz bir karmaşıklığa neden olabilir. Genellikle, `switch` bloğu içinde değişken tanımlamak yerine, `switch` bloğu dışında bir değişken tanımlayıp onu içinde kullanmak daha temiz bir kod yapısı sağlar.
+Ancak, yukarıdaki örnekte görebileceğiniz gibi, her durum için ayrı bir `message` değişkeni tanımlamak, genellikle gereksiz bir karmaşıklığa neden olabilir. Genellikle, `switch` bloğu içinde değişken tanımlamak yerine, `switch` bloğu dışında bir değişken tanımlayıp onu içinde kullanmak daha temiz bir kod yapısı sağlar.
 
 ## 13. Pure fonksiyon ne demektir? Açıklayınız.
 
@@ -481,7 +481,7 @@ Saf fonksiyonlar, programlamada özellikle fonksiyonel programlama paradigmasın
 Örneğin, aşağıdaki JavaScript fonksiyonu bir saf fonksiyon örneğidir:
 
 ```JavaScript
-function  toplama(a, b) {
+function  sum(a, b) {
 	return a + b;
 }
 ```
@@ -495,26 +495,26 @@ Rest operatörü, JavaScript'te bir dizi içindeki geri kalan elemanları bir de
 Rest operatörü, bir dizi içindeki belirli elemanları almak yerine, geri kalan elemanları bir başka değişkene toplar. Aşağıda bir örneği verilmiştir.
 
 ```JavaScript
-const [ilkEleman, ikinciEleman, ...geriKalanElemanlar] = [1, 2, 3, 4, 5];
+const [firstElement, secondElement, ...restElements] = [1, 2, 3, 4, 5];
 
-console.log(ilkEleman); // 1
-console.log(ikinciEleman); // 2
-console.log(geriKalanElemanlar); // [3, 4, 5]
+console.log(firstElement); // 1
+console.log(secondElement); // 2
+console.log(restElements); // [3, 4, 5]
 ```
 
-Bu örnekte, `...geriKalanElemanlar` rest operatörü kullanılarak dizinin geri kalan elemanları bir dizi olarak alınmıştır.
+Bu örnekte, `...restElements` rest operatörü kullanılarak dizinin geri kalan elemanları bir dizi olarak alınmıştır.
 
 Aynı rest operatörü fonksiyon parametrelerinde de kullanılabilir. Örneğin:
 
 ```JavaScript
-function  topla(...sayilar) {
-	return sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+function  sum(...numbers) {
+	return sayilar.reduce((sum, num) => sum + num, 0);
 }
 
-console.log(topla(1, 2, 3, 4, 5)); // 15
+console.log(sum(1, 2, 3, 4, 5)); // 15
 ```
 
-Bu örnekte, `...sayilar` rest operatörü, fonksiyona geçilen tüm sayıları bir dizi olarak toplar. `reduce` fonksiyonu kullanılarak bu sayılar toplanır. Bu, fonksiyonun herhangi bir sayı miktarını alabilmesini sağlar.
+Bu örnekte, `...numbers` rest operatörü, fonksiyona geçilen tüm sayıları bir dizi olarak toplar. `reduce` fonksiyonu kullanılarak bu sayılar toplanır. Bu, fonksiyonun herhangi bir sayı miktarını alabilmesini sağlar.
 
 ## 15. Object destructuring nedir? Örnekle açıklayınız.
 
@@ -523,21 +523,21 @@ Object destructuring, JavaScript'te bir nesne içindeki özellikleri ayrıştır
 Aşağıda bir örnek verilmiştir.
 
 ```JavaScript
-const kullanici = {
-	ad: 'John',
-	soyad: 'Doe',
-	yas: 30
+const user = {
+	name: 'John',
+	surname: 'Doe',
+	age: 30
 };
 
 // Object destructuring kullanarak nesne özelliklerini ayrıştırma
-const { ad, soyad, yas } = kullanici; // Ayrıştırılmış değerleri kullanma
+const { name, surname, age } = kullanici; // Ayrıştırılmış değerleri kullanma
 
-console.log(ad); // 'John'
-console.log(soyad); // 'Doe'
-console.log(yas); // 30
+console.log(name); // 'John'
+console.log(surname); // 'Doe'
+console.log(age); // 30
 ```
 
-Bu örnekte, `kullanici` adında bir nesne var ve `const { ad, soyad, yas } = kullanici;` satırında object destructuring kullanılarak nesne özellikleri ayrıştırılmıştır. Bu sayede `ad`, `soyad` ve `yas` adında üç ayrı değişken oluşturulmuş ve bunlara sırasıyla "John", "Doe" ve 30 değerleri atanmıştır.
+Bu örnekte, `user` adında bir nesne var ve `const { name, surname, age } = user;` satırında object destructuring kullanılarak nesne özellikleri ayrıştırılmıştır. Bu sayede `name`, `surname` ve `age` adında üç ayrı değişken oluşturulmuş ve bunlara sırasıyla "John", "Doe" ve 30 değerleri atanmıştır.
 
 Object destructuring, özellikle fonksiyonlardan dönen nesnelerden belirli özellikleri çıkarmak veya nesne içindeki özelliklere daha kolay erişim sağlamak için yaygın olarak kullanılır.
 
