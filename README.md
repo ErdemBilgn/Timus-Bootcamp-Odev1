@@ -508,7 +508,7 @@ Aynı rest operatörü fonksiyon parametrelerinde de kullanılabilir. Örneğin:
 
 ```JavaScript
 function  sum(...numbers) {
-	return sayilar.reduce((sum, num) => sum + num, 0);
+	return numbers.reduce((sum, num) => sum + num, 0);
 }
 
 console.log(sum(1, 2, 3, 4, 5)); // 15
@@ -530,7 +530,7 @@ const user = {
 };
 
 // Object destructuring kullanarak nesne özelliklerini ayrıştırma
-const { name, surname, age } = kullanici; // Ayrıştırılmış değerleri kullanma
+const { name, surname, age } = user; // Ayrıştırılmış değerleri kullanma
 
 console.log(name); // 'John'
 console.log(surname); // 'Doe'
@@ -594,4 +594,40 @@ class myObject  {
   }
 }
 let obj6 = new myObject("John", 25);
+```
+
+## 17. 2 elemanlı bir objenin key ve value değerlerinin karakter sayısı ile 2 farklı döngü methodu kullanarak yeni bir obje oluşturunuz.
+
+Aşağıda iki farklı döngü methodu kullanarak bir objenin key ve value değerlerinin karakter sayısı ile yeni bir obje oluşturan örnek bir JavaScript kodu bulunmaktadır:
+
+```javascript
+const originalObj = {
+  name: "John",
+  age: 25,
+};
+
+// 1. Döngü Methodu: for...in Döngüsü
+const newObj1 = {};
+for (let key in originalObj) {
+  newObj1[key] = originalObj[key].length;
+}
+
+// 2. Döngü Methodu: Object.keys() ve forEach
+const newObj2 = {};
+Object.keys(originalObj).forEach((key) => {
+  newObj2[key] = originalObj[key].length;
+});
+
+console.log(newObj1);
+console.log(newObj2);
+```
+
+Bu örnekte, `originalObj` adında bir obje var. İki farklı döngü methodu kullanılarak her bir key'in değerinin karakter sayısı ile yeni bir obje oluşturuluyor. `newObj1` ve `newObj2` sonuç olarak aşağıdaki gibi olacaktır:
+
+```javascript
+//  newObj1
+{ name:  4, age:  2 }
+
+//  newObj2
+{ name:  4, age:  2 }
 ```
