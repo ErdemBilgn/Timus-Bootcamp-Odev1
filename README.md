@@ -631,3 +631,10 @@ Bu örnekte, `originalObj` adında bir obje var. İki farklı döngü methodu ku
 //  newObj2
 { name:  4, age:  2 }
 ```
+
+## 18. Cookie, local storage ve session storage farkını tablo yapınız.
+
+Cookie, local storage ve session storage farkları tablosu aşağıda verilmiştir.
+
+<p align="center"><img src = "https://i.stack.imgur.com/6EL55.png"/>
+</p>
