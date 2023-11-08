@@ -691,3 +691,131 @@ fetchData()
 ```
 
 Bu örnekte, `fetchData` fonksiyonu bir Promise döndürüyor ve `.then()` ve `.catch()` yöntemleri kullanılarak başarılı ve başarısız durumlar yönetiliyor. Bu, asenkron işlemlerin daha düzenli bir şekilde ele alınmasına olanak tanır.
+
+<h1  align="center">Array Soruları</h1>
+
+## `var dolap = ["Shirt", "Pant", "Tshirt"]`;
+
+## 1. dolap arrayindeki son elemanı silip consola yazdırın.
+
+`dolap` arrayindeki son elemanı silip konsola yazdıran kod bloğu aşağıda verilmiştir.
+
+```javascript
+let lastElement = dolap.pop();
+console.log(lastElement); // "Tshirt"
+```
+
+## 2. dolap arrayindeki ilk elamanı silip yerine “Hat” elemanını gönderip consola yazdırın.
+
+`dolap` arrayingdeki ilk elemanı silip yerine "Hat" elemanını ekleyecek kod bloğu aşağıda verilmiştir.
+
+```javascript
+dolap.splice(0, 1, "Hat");
+console.log(dolap); // [ 'Hat', 'Pant', 'Tshirt' ]
+```
+
+## 3. dolap değişkeninin array olup olmadığını kontrol edin ve sonucu bir değişkene eşitleyin.
+
+`dolap` değişkeninin array olup olmadığını kontrol eden ve sonucu bir değişkene eşitleyen kod bloğu aşağıda verilmiştir.
+
+```javascript
+const isArr = Array.isArray(dolap);
+console.log(isArr); // true
+```
+
+## 4. dolap arrayinde “Pant” elemanın olup olmadığını 3 farklı method ile kontrol edin.
+
+`dolap` arrayine "Pant" elemanının olup olmadığını 3 farklı methodla kontrol eden kod bloğu aşağıda verilmiştir.
+
+```javascript
+const method1 = dolap.includes("Pant");
+console.log(method1); // true
+
+const method2 = dolap.find((el) => el === "Pant");
+console.log(method2); // Pant
+//Eğer elemanı bulamazsa undefined değerini döndürür.
+
+const method3 = dolap.findIndex((el) => el === "Pant");
+console.log(method3); // 1
+//Eğer elemanı bulamazsa -1 değerini döndürür.
+```
+
+## 5. dolap arrayindeki elemanların karakter sayısını toplayıp geriye döndürecek fonksiyonu yazın.
+
+`dolap` arrayindeki elemanların karakter sayısını toplayıp geriye döndürecek fonksyon aşağıda verilmiştir:
+
+```javascript
+function summingArray() {
+  let num = dolap.reduce((acc, cur) => {
+    let sum = acc + cur.length;
+    return sum;
+  }, 0);
+  return num;
+}
+
+console.log(summingArray()); // 15
+```
+
+## 6. dolap arrayindeki tüm elemanları büyük harfe çevirip yeni bir değişkene 3 farklı yöntemle atayın.
+
+`dolap` arrayindeki tüm elemanları büyük harfe çevirip yeni bir değişkene atacak olan 3 yöntem aşağıda verilmiştir.
+
+```javascript
+// map ve toUpperCase() kullanarak
+const dolapUpper = dolap.map((el) => el.toUpperCase());
+console.log(dolapUpper); // ["SHIRT", "PANT", "TSHIRT"]
+```
+
+```javascript
+// for döngüsü kullanarak
+const dolapUpper2 = [];
+for (let i = 0; i < dolap.length; i++) {
+  dolapUpper2.push(dolap[i].toUpperCase());
+}
+console.log(dolapUpper2); // ["SHIRT", "PANT", "TSHIRT"]
+```
+
+```javascript
+// forEach kullanarak
+const dolapUpper3 = [];
+dolap.forEach((el) => dolapUpper3.push(el.toUpperCase()));
+console.log(dolapUpper3); // ["SHIRT", "PANT", "TSHIRT"]
+```
+
+## dolap arrayini index sayıları key olacak şekilde objeye çeviriniz.
+
+dolap arrayini index sayıları key olacak şekilde objeye çeviren kod bloğu aşağıda verilmiştir.
+
+```javascript
+const dolapObj = dolap.reduce((acc, cur, index) => {
+  acc[index] = cur;
+  return acc;
+}, {});
+
+console.log(dolapObj);
+```
+
+Bu örnekte, `reduce` fonksiyonu kullanılarak bir obje oluşturuyoruz. Her elemanı objeye eklerken, elemanın bulunduğu index'i key olarak kullanıyoruz. Sonuç olarak, `dolapObj` aşağıdaki gibi olacaktır:
+
+```javascript
+{
+	0: "Shirt",
+	1: "Pant",
+	2: "Tshirt"
+}
+```
+
+## 8. slice ile splice farkı nedir?
+
+`slice` ve `splice` iki farklı dizi metodudur ve farklı amaçlara hizmet ederler:
+
+**`slice()` Metodu:**
+
+- `slice` metodunu kullanarak bir dizinin belirli bir bölümünü alabiliriz. Bu metod orijinal diziyi değiştirmez, sadece belirtilen bölümün bir kopyasını oluşturur.
+- Parametre olarak başlangıç ve bitiş indekslerini alır. Başlangıç indeksi dahil, bitiş indeksi hariçtir.
+
+**`splice()` Metodu:**
+
+- `splice` metodunu kullanarak bir diziyi değiştirebiliriz. Bu metod, bir dizinin belirli bir bölümünü çıkarabilir ve/veya yeni elemanlar ekleyebilir.
+- Parametre olarak başlangıç indeksi, kaç elemanın çıkarılacağı (opsiyonel) ve eklenen elemanlar alır.
+- `splice` metodu orijinal diziyi değiştirir.
